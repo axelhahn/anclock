@@ -237,7 +237,7 @@ var Anclock=function (sDivname, aOptions){
      * @returns {array}
      */
     this.getSkin =function(sSkin){
-        var aOptionVars=["width", "height", "iAnimate", "bShowDay", "bShowSeconds", "bShowSecHand"];
+        var aOptionVars=["width", "height", "iAnimate", "bShowDay", "bShowDigital", "bShowTimeAsTitle", "bUseOffset", "iOffset", "bStopped", "bShowSeconds", "bShowSecHand"];
         var aStyleVars=["analog", "dot1", "dot2", "hands", "hhand", "mhand", "shand", "day", "digital"];
         var i=0;
 
@@ -457,7 +457,7 @@ var Anclock=function (sDivname, aOptions){
         +'<div class="mhand"></div>'
         +'<div class="shand"></div>'
         +'</div>'
-        + (this.options.bShowDigital 
+        + (aSkin.bShowDigital 
             ?
             '<div class="digital">'
             +'<span class="hours"></span>'
@@ -586,7 +586,7 @@ var Anclock=function (sDivname, aOptions){
         return false;
     }
 
-    this._drawHtml(); // draw initial html code
+    this._drawHtml();  // draw initial html code
     this._onTimer();   // start timer function
     if (!aOptions) {
         this.setOptions({
